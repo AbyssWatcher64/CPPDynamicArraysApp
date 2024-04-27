@@ -6,6 +6,33 @@ DynamicArray::DynamicArray()
 	mArray = new int[DYNAMIC_ARRAY_CHUNK_SIZE];
 }
 
+DynamicArray::~DynamicArray(){}
+
+bool DynamicArray::empty() const
+{
+	if (mSize == 0)
+		return true;
+	else
+		return false;
+}
+
+unsigned int DynamicArray::size() const
+{
+	return mSize;
+}
+
+int& DynamicArray::operator[](unsigned int index)
+{
+	int& number = mArray[index];
+	return number;
+}
+
+const int& DynamicArray::operator[](unsigned int index) const
+{
+	int& number = mArray[index];
+	return number;
+}
+
 void DynamicArray::push_back(int value)
 {
 	if (mSize == mCapacity)
@@ -42,6 +69,20 @@ void DynamicArray::insert(unsigned int index, int elem)
 	}
 	mArray[index] = elem;
 	mSize++;
+}
+
+void DynamicArray::erase(unsigned int index)
+{
+	for (int i = index; i < mSize; i++)
+	{
+		mArray[i] = mArray[i + 1];
+	}
+	mSize--;
+}
+
+void DynamicArray::clear()
+{
+	mSize = 0;
 }
 
 void DynamicArray::increaseCapacity()

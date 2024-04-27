@@ -1,4 +1,4 @@
-
+#include <iostream>
 #include "DynamicArray.h"
 using namespace std;
 
@@ -35,7 +35,25 @@ int main()
 	dynamicArray->insert(4, 400);
 	dynamicArray->printArray();
 	dynamicArray->insert(4, 300);
+	cout << "Size: " << dynamicArray->size() << " Is empty?: " << dynamicArray->empty() << endl;
 	dynamicArray->printArray();
+	dynamicArray->erase(4);
+	dynamicArray->printArray();
+	dynamicArray->erase(9);
+	dynamicArray->printArray();
+
+	dynamicArray->clear();
+	cout << "Size: " << dynamicArray->size() << " Is empty?: " << dynamicArray->empty() << endl;
+	dynamicArray->printArray();
+	dynamicArray->push_back(1);
+	dynamicArray->push_back(2);
+	dynamicArray->push_back(3);
+	dynamicArray->printArray();
+
+	//int value = dynamicArray[2]; //--> errors. Why?
+	//int value1 = 2;
+	//dynamicArray[2] = value1;
+
 
 	return 0;
 }
